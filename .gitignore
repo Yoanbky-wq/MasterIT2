@@ -1,0 +1,26 @@
+
+# Dépendances Node.js
+node_modules/
+
+# Fichiers de compilation
+dist/
+dist-ssr/
+
+# Variables d'environnement et données sensibles
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Fichiers des éditeurs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
