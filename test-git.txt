@@ -1,0 +1,6 @@
+PROJET MASTER IT
+
+Ceci est un fichier de test Git.
+Je travaille actuellement sur la branche feature/test-git.
+
+Objectif : apprendre à créer, modifier et fusionner des branches.
