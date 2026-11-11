@@ -27,40 +27,47 @@ router.get("/:id", (req, res) => {
 
 // POST : ajouter une formation
 router.post("/", (req, res) => {
-  const nom = req.body.nom?.trim();
+  const nom = req.body.nom;
 
-  if (!nom || nom.length < 2) {
+  if (typeof nom !== "string" || nom.trim().length < 2) {
     return res.status(400).json({
       message: "Le nom doit contenir au moins 2 caractères"
     });
   }
 
+  const nomNettoye = nom.trim();
+
   const nouvelleFormation = {
     id: Date.now(),
-    nom: nom
+    nom: nomNettoye
   };
 
   formations.push(nouvelleFormation);
   res.status(201).json(nouvelleFormation);
 });
 
-// PUT : modifier une formation (acquis du Module 5 conservé)
+// PUT : modifier une formation
 router.put("/:id", (req, res) => {
   const id = Number(req.params.id);
   const formation = formations.find((item) => item.id === id);
-  const nom = req.body.nom?.trim();
+  const nom = req.body.nom;
 
   if (!formation) {
-    return res.status(404).json({ message: "Formation introuvable" });
+    return res.status(404).json({
+      message: "Formation introuvable"
+    });
   }
 
-  if (!nom || nom.length < 2) {
+  if (typeof nom !== "string" || nom.trim().length < 2) {
     return res.status(400).json({
       message: "Le nom doit contenir au moins 2 caractères"
     });
   }
 
-  formation.nom = nom;
+  const nomNettoye = nom.trim();
+
+  formation.nom = nomNettoye;
+
   res.status(200).json(formation);
 });
 

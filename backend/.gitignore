@@ -1,0 +1,6 @@
+# Fichiers sensibles Firebase
+serviceAccountKey.json
+.env
+
+# Dépendances Node.js
+node_modules/

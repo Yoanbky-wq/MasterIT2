@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+# Configuration locale Firebase et secrets du backend
+.firebase/
+backend/.env

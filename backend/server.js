@@ -1,11 +1,11 @@
-
+require("dotenv").config();
+const verifierAuthentification = require("./middleware/auth");
 const express = require("express");
 const cors = require("cors");
 const formationsRoutes = require("./routes/formations");
 
 const app = express();
-const PORT = 3000;
-
+const PORT = process.env.PORT || 3000;
 // CONFIGURATION CORS
 app.use(cors({
   origin: "http://localhost:5174"
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 // ROUTES DES FORMATIONS
-app.use("/api/formations", formationsRoutes);
+app.use("/api/formations", verifierAuthentification, formationsRoutes);
 
 // ROUTES INEXISTANTES
 app.use((req, res) => {
