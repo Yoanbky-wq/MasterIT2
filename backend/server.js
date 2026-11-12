@@ -7,8 +7,14 @@ const formationsRoutes = require("./routes/formations");
 const app = express();
 const PORT = process.env.PORT || 3000;
 // CONFIGURATION CORS
+const originesAutorisees = [
+  "http://localhost:5174",
+  "https://masterit-66d10.web.app",
+  "https://masterit-66d10.firebaseapp.com"
+];
+
 app.use(cors({
-  origin: "http://localhost:5174"
+  origin: originesAutorisees
 }));
 
 // MIDDLEWARE JSON
